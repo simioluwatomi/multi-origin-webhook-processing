@@ -70,7 +70,7 @@ class ProcessWebhookJob implements ShouldQueue, ShouldBeUnique
                 'tries' => ++$this->webhook->tries
             ]);
 
-            Log::error('Webhook processing failed', [$exception]);
+            Log::error('Webhook processing failed', ['exception' => $exception]);
 
             $this->release(Carbon::now()->addMinutes(15));
         }

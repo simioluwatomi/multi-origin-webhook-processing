@@ -44,7 +44,7 @@ class PaystackWebhookProcessor extends AbstractWebhookProcessor
         $computedSignature = hash_hmac(
             algo: 'sha512',
             data: $request->getContent(),
-            key: config('services.paystack.secret_key', '')
+            key: config(key: 'services.paystack.secret_key', default: '')
         );
 
         throw_if(

@@ -43,7 +43,7 @@ class LemonSqueezyWebhookProcessor extends AbstractWebhookProcessor
         $computedSignature = hash_hmac(
             algo: 'sha256',
             data: $request->getContent(),
-            key: config('services.lemonsqueezy.webhook.secret_key', '')
+            key: config(key: 'services.lemon-squeezy.webhook.secret_key', default: '')
         );
 
         throw_if(
