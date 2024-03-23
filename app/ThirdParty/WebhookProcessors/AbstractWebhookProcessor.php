@@ -16,7 +16,7 @@ abstract class AbstractWebhookProcessor implements WebhookProcessorInterface
      */
     public function getName(): string
     {
-        return Str::lower($this->origin->value);
+        return Str::of($this->origin->value)->squish()->lower()->value();
     }
 
     /**
